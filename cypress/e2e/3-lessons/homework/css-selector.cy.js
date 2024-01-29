@@ -1,4 +1,4 @@
-describe("uygulama-03", () => {
+describe("homework", () => {
   it("Temel Fonksiyonlarin Kullanilmasi- CSS Selector", () => {
     cy.visit("https://www.webdriveruniversity.com/Contact-Us/contactus.html");
     cy.get('[name="first_name"]').type("ahmet");
