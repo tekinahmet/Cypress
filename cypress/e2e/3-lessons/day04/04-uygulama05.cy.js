@@ -1,10 +1,10 @@
 describe("uygulama05", () => {
   it("https://automationteststore.com adresini ziyaret et", () => {
     cy.visit("https://automationteststore.com");
-    cy.xpath("//a[.='Login or register']").click();
+    //cy.xpath("//a[.='Login or register']").click();
+    cy.contains("Login or register").click();
     cy.get("#loginFrm_loginname").type("techpro");
     cy.get("#loginFrm_password").type("techpro!");
-
     cy.get("#loginFrm > fieldset > .btn").click();
     cy.get(".side_account_list > :nth-child(3) > a").click();
 
@@ -15,6 +15,11 @@ describe("uygulama05", () => {
       cy.get("#AccountFrm_telephone").clear();
       cy.get("#AccountFrm_fax").clear();
     });
+    cy.get(".col-md-12 > .btn-orange").click();
+    cy.get(".alert").should(
+      "contain",
+      "Oops, there is an error with information provided!"
+    );
   });
 });
 
