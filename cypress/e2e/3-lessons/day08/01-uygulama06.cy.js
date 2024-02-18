@@ -75,4 +75,50 @@ describe("uygulama-06", () => {
 
     cy.get('[data-test="nav-user-menu"]').should("be.visible");
   });
+
+  it("favourite pages", () => {
+    cy.visit("https://practicesoftwaretesting.com/#/");
+
+    cy.get('[data-test="nav-sign-in"]').click();
+
+    cy.readFile("cypress/fixtures/email.txt").then((email) => {
+      cy.get("#email").type(email);
+    });
+
+    cy.readFile("cypress/fixtures/password.txt").then((password) => {
+      cy.get("#password").type(password);
+    });
+
+    cy.get('[value="Login"]').click();
+
+    cy.get('[data-test="nav-user-menu"]').should("be.visible");
+
+    cy.get('[data-test="nav-favorites"]').click();
+
+    cy.contains("There are no favorites yet.").should("be.visible");
+  });
+
+  it.only("favourite", () => {
+    
+cy.visit("https://practicesoftwaretesting.com/#/");
+    cy.get('[data-test="nav-sign-in"]').click();
+
+    cy.readFile("cypress/fixtures/email.txt").then((email) => {
+      cy.get("#email").type(email);
+    });
+
+    cy.readFile("cypress/fixtures/password.txt").then((password) => {
+      cy.get("#password").type(password);
+    }); 
+
+    cy.get('[value="Login"]').click();
+
+    cy.get('[data-test="nav-user-menu"]').should("be.visible");
+
+    cy.get('[data-test="nav-favorites"]').click();
+
+    cy.get('[data-test^="favorite"]')
+      .should("exist")
+      .and("contain", "Combination Pliers");
+  });
 });
