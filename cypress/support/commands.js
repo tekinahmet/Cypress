@@ -30,3 +30,10 @@ Cypress.Commands.add('magentoLogin', (email, password) => {
     cy.get("#pass").type(password);
     cy.get("#send2").click();
 })
+
+Cypress.Commands.add('wordSearch', (word)=>{
+    cy.visit("https://magento.softwaretestingboard.com/");
+    cy.get("#search").type(word);
+    cy.get(".action.search").click();
+    cy.get(".base").should("contain", word);
+})

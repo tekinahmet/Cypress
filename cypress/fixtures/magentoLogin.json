@@ -1,4 +1,6 @@
 {
-    "email" : "aedyn.kewon@fixedfor.com",
-    "password" : "*9kJceG5*TSWXhb"
+    "validEmail" : "aedyn.kewon@fixedfor.com",
+    "validPassword" : "*9kJceG5*TSWXhb",
+    "invalidEmail" : "aedyn.kewon@fixedfor",
+    "invalidPassword" : "*9kJceG5*TSW"
 }
