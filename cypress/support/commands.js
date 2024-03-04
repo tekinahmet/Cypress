@@ -37,3 +37,11 @@ Cypress.Commands.add('wordSearch', (word)=>{
     cy.get(".action.search").click();
     cy.get(".base").should("contain", word);
 })
+Cypress.Commands.add("orangehrmSessionLogin", (username, password) => {
+  cy.session([username, password], () => {
+    cy.visit("https://opensource-demo.orangehrmlive.com/");
+    cy.get('[name="username"]').type(username);
+    cy.get('[name="password"]').type(password);
+    cy.get('[type="submit"]').click();
+  });
+});
